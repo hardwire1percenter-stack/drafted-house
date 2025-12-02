@@ -1,4 +1,4 @@
-export default function amendment() {
+export default function Amendment() {
   return (
     <div style={{padding:40, fontFamily:"system-ui", maxWidth:900, margin:"auto", lineHeight:1.8}}>
       <h1 style={{textAlign:"center", fontSize:38}}>System v3.1-F</h1>
