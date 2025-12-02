@@ -2,14 +2,15 @@
 
 export default function Amendment() {
   return (
-    <div style={{padding:40, fontFamily:"system-ui", maxWidth:900, margin:"auto", lineHeight:1.8}}>
+    // Added backgroundColor and color to force light theme contrast
+    <div style={{padding:40, fontFamily:"system-ui", maxWidth:900, margin:"auto", lineHeight:1.8, backgroundColor: "#ffffff", color: "#333333", minHeight:"100vh"}}>
       <h1 style={{textAlign:"center", fontSize:38}}>System v3.1-F</h1>
       <h2 style={{textAlign:"center", color:"#c00"}}>The Post-Ego Republic</h2>
       <p style={{textAlign:"center", fontSize:18, marginBottom:50}}>
         Primary Architect: Jason Steed — December 2025
       </p>
 
-      <pre style={{background:"#f4f4f4", padding:30, borderRadius:12, overflowX:"auto", whiteSpace:"pre-wrap", fontSize:15, border:"1px solid #ddd"}}>
+      <pre style={{background:"#f4f4f4", padding:30, borderRadius:12, overflowX:"auto", whiteSpace:"pre-wrap", fontSize:15, border:"1px solid #ddd", color:"#333"}}>
 {`# System v3.1-F: Constitutional Architecture
 ## "Competence Over Charisma"
 
@@ -78,7 +79,7 @@ Revolution is obsolete. System v3.1 does not conquer the old system; it out-perf
       </pre>
 
       <p style={{textAlign:"center", marginTop:50}}>
-        <a href="/" style={{fontSize:20, color:"#0066cc"}}>← Back to voting</a>
+        <a href="/" style={{fontSize:20, color:"#0066cc", textDecoration: "none", borderBottom:"1px solid #0066cc"}}>← Back to voting interface</a>
       </p>
     </div>
   );
