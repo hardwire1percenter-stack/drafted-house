@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 export default function Home() {
-  const [yes, setYes] = useState(12741);
+  const [yes, setYes] = useState(102741);
   const [no, setNo] = useState(8921);
   const [veto, setVeto] = useState(28457);
 
