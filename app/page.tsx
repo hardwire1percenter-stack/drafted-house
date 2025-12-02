@@ -55,7 +55,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{padding:20, fontFamily:"sans-serif", maxWidth:600, margin:"auto", textAlign:"center", minHeight:"100vh", display:"flex", flexDirection:"column", justifyContent:"center", color:"#333"}}>
+    // Added backgroundColor: "#ffffff" here to ensure contrast in dark mode
+    <div style={{padding:20, fontFamily:"sans-serif", maxWidth:600, margin:"auto", textAlign:"center", minHeight:"100vh", display:"flex", flexDirection:"column", justifyContent:"center", color:"#333", backgroundColor: "#ffffff"}}>
       
       {/* HEADER */}
       <div style={{marginBottom:40}}>
@@ -89,7 +90,7 @@ export default function Home() {
 
         <div style={{display:"flex", flexDirection:"column", gap:10}}>
           <div style={{display:"flex", gap:10}}>
-            <button onClick={() => vote('yes')} style={{flex:1, padding:15, fontSize:18, background:"#eee", border:"none", cursor:"pointer", fontWeight:"bold"}}>YES</button>
+            <button onClick={() => vote('yes')} style={{flex:1, padding:15, fontSize:18, background:"#eee", border:"none", cursor:"pointer", fontWeight:"bold", color:"#333"}}>YES</button>
             <button onClick={() => vote('no')} style={{flex:1, padding:15, fontSize:18, background:"#333", color:"#fff", border:"none", cursor:"pointer", fontWeight:"bold"}}>NO</button>
           </div>
           <button onClick={() => vote('veto')} style={{width:"100%", padding:15, fontSize:18, background:"#c00", color:"white", border:"none", cursor:"pointer", fontWeight:"bold", textTransform:"uppercase"}}>
@@ -102,7 +103,8 @@ export default function Home() {
 
       {/* FOOTER LINKS */}
       <div style={{marginTop:50}}>
-        <a href="/amendment" style={{fontSize:16, color:"#000", textDecoration:"none", borderBottom:"1px solid #000", paddingBottom:2}}>
+        {/* Changed color to a standard link blue for better visibility */}
+        <a href="/amendment" style={{fontSize:16, color:"#0066cc", textDecoration:"none", borderBottom:"1px solid #0066cc", paddingBottom:2}}>
           Read System v3.1-F White Paper
         </a>
       </div>
