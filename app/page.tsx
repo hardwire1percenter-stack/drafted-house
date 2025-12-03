@@ -1,165 +1,69 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-
 export default function Home() {
-  const [yes, setYes] = useState(0);
-  const [no, setNo] = useState(0);
-  const [veto, setVeto] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [message, setMessage] = useState('');
-
-  // 1. Sync with the Ledger
-  const fetchVotes = async () => {
-    try {
-      const res = await fetch('/api/vote');
-      if (!res.ok) throw new Error('Ledger Sync Failed');
-      const data = await res.json();
-      setYes(data.yes);
-      setNo(data.no);
-      setVeto(data.veto);
-      
-      if (data.alreadyVoted) setMessage('Status: Vote Already Recorded.');
-      setLoading(false);
-    } catch (e) {
-      console.error(e);
-      setLoading(false);
-    }
-  };
-
-  // 2. Transmit Vote
-  const vote = async (type: 'yes' | 'no' | 'veto') => {
-    setMessage('Transmitting to Ledger...');
-    try {
-      const res = await fetch('/api/vote', {
-        method: 'POST',
-        body: JSON.stringify({ type }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-      const data = await res.json();
-      
-      setYes(data.yes);
-      setNo(data.no);
-      setVeto(data.veto);
-      
-      if (data.alreadyVoted) {
-        setMessage('Access Denied: One vote per citizen ID per session.');
-      } else {
-        setMessage('Vote Confirmed. Screenshot this to share.');
-      }
-    } catch (e) {
-      setMessage('Connection Error: Node Offline.');
-    }
-  };
-
-  // 3. Live Polling
-  useEffect(() => {
-    fetchVotes();
-    const interval = setInterval(fetchVotes, 3000); 
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div style={{
-      padding: 20, 
-      fontFamily: 'Georgia, serif', 
-      maxWidth: 600, 
-      margin: "auto", 
-      textAlign: "center", 
-      minHeight: "100vh", 
-      display: "flex", 
-      flexDirection: "column", 
-      justifyContent: "center", 
-      backgroundColor: "#ffffff", 
-      color: "#111"
-    }}>
-      
-      {/* HEADER */}
-      <div style={{marginBottom: 40}}>
-        <h1 style={{fontSize: 28, margin: "0 0 10px 0", letterSpacing: "1px", textTransform: "uppercase"}}>The Competence Restoration Act</h1>
-        <p style={{fontSize: 14, color: "#666", fontStyle: "italic", borderTop: "1px solid #ddd", borderBottom: "1px solid #ddd", padding: "10px 0", width: "80%", margin: "0 auto"}}>
-          National Shadow Interface • Primary Node
+    <main className="relative min-h-screen overflow-hidden bg-black">
+      {/* Waving American flag background */}
+      <div className="absolute inset-0 waving-flag" />
+
+      {/* Dark overlay so text is readable */}
+      <div className="absolute inset-0 bg-black/50" />
+
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
+        {/* Title with patriotic glow */}
+        <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 text-white drop-shadow-2xl">
+          {"Drafted House".split("").map((letter, i) => (
+            <span
+              key={i}
+              className="inline-block hover:text-red-500 transition-colors duration-300"
+              style={{ animation: `fadeInUp 0.8s ease-out ${i * 0.08}s both` }}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </span>
+          ))}
+        </h1>
+
+        <p className="text-2xl md:text-4xl font-bold text-white drop-shadow-lg mb-12 max-w-4xl">
+          Where America builds its future — one draft at a time.
         </p>
-      </div>
 
-      {/* ACTIVE BILL CARD */}
-      <div style={{
-        padding: 30, 
-        border: "4px solid #111", 
-        background: "#fff", 
-        textAlign: "left"
-      }}>
-        <div style={{borderBottom: "1px solid #eee", paddingBottom: 15, marginBottom: 20}}>
-          <div style={{fontSize: 12, fontWeight: "bold", color: "#c00", textTransform: "uppercase", marginBottom: 5}}>
-            Live Ratification Session
-          </div>
-          <h2 style={{margin: 0, fontSize: 22, lineHeight: 1.3, fontFamily: "sans-serif", fontWeight: "bold"}}>H.R.2201 — "The Competence Restoration Act"</h2>
-          <p style={{color: "#444", marginTop: 10, fontSize: 15, lineHeight: 1.5, fontFamily: "sans-serif"}}>
-            <strong>Mandate:</strong> Establishing a government of <strong>Competency Over Corruption</strong>.
-            <br/>
-            <strong>System Check:</strong> <span style={{color:"green", fontWeight:"bold"}}>READY FOR RATIFICATION</span>
-          </p>
-        </div>
-
-        {/* TALLY DISPLAY */}
-        {loading ? <p style={{textAlign:"center", fontStyle:"italic"}}>Syncing Ledger...</p> : (
-          <div style={{display: "flex", justifyContent: "space-between", marginBottom: 30, textAlign: "center", fontFamily: "sans-serif"}}>
-            <div style={{flex: 1}}>
-              <div style={{fontSize: 32, fontWeight: "900"}}>{Number(yes).toLocaleString()}</div>
-              <div style={{fontSize: 11, fontWeight: "bold", color: "#009900", textTransform: "uppercase", letterSpacing: 1}}>Affirm</div>
-            </div>
-            <div style={{flex: 1, borderLeft: "1px solid #eee", borderRight: "1px solid #eee"}}>
-              <div style={{fontSize: 32, fontWeight: "900"}}>{Number(no).toLocaleString()}</div>
-              <div style={{fontSize: 11, fontWeight: "bold", color: "#555", textTransform: "uppercase", letterSpacing: 1}}>Dissent</div>
-            </div>
-            <div style={{flex: 1}}>
-              <div style={{fontSize: 32, fontWeight: "900", color: "#c00"}}>{Number(veto).toLocaleString()}</div>
-              <div style={{fontSize: 11, fontWeight: "bold", color: "#c00", textTransform: "uppercase", letterSpacing: 1}}>Citizen Veto</div>
-            </div>
-          </div>
-        )}
-
-        {/* BUTTONS */}
-        <div style={{display: "flex", flexDirection: "column", gap: 10, fontFamily: "sans-serif"}}>
-          <div style={{display: "flex", gap: 10}}>
-            <button 
-              onClick={() => vote('yes')} 
-              style={{flex: 1, padding: 15, fontSize: 16, background: "#f0f0f0", border: "1px solid #ccc", cursor: "pointer", fontWeight: "bold", color: "#333"}}
-            >
-              Yes
-            </button>
-            <button 
-              onClick={() => vote('no')} 
-              style={{flex: 1, padding: 15, fontSize: 16, background: "#333", color: "#fff", border: "1px solid #333", cursor: "pointer", fontWeight: "bold"}}
-            >
-              No
-            </button>
-          </div>
-          <button 
-            onClick={() => vote('veto')} 
-            style={{width: "100%", padding: 15, fontSize: 16, background: "#a00", color: "white", border: "none", cursor: "pointer", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px"}}
-          >
-            Veto
+        <div className="flex flex-col sm:flex-row gap-8">
+          <button className="px-12 py-6 bg-red-600 text-white font-bold text-xl rounded-full hover:bg-red-700 hover:scale-110 transition-all duration-300 shadow-2xl">
+            Start Building
+          </button>
+          <button className="px-12 py-6 bg-blue-700 text-white font-bold text-xl rounded-full hover:bg-blue-800 hover:scale-110 transition-all duration-300 shadow-2xl">
+            Explore the Dream
           </button>
         </div>
 
-        {/* STATUS MESSAGE */}
-        {message && (
-          <div style={{marginTop: 20, fontSize: 13, fontWeight: "bold", textAlign: "center", padding: 10, background: "#f9f9f9", border: "1px solid #eee", fontFamily: "sans-serif", color: "#555"}}>
-            {message}
-          </div>
-        )}
+        {/* Patriotic down arrow */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L12 22M12 22L6 16M12 22L18 16" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+          </svg>
+        </div>
       </div>
 
-      {/* FOOTER LINK TO AMENDMENT */}
-      <div style={{marginTop: 50}}>
-        <a href="/amendment" style={{fontSize: 16, color: "#111", textDecoration: "underline", fontWeight: "bold"}}>
-          Read the Competence Restoration Amendment
-        </a>
-        <p style={{marginTop: 20, fontSize: 12, color: "#999", maxWidth: 400, margin: "20px auto", fontFamily: "sans-serif"}}>
-          System v3.4 • Verified Deployment
-        </p>
-      </div>
-    </div>
+      {/* Waving Flag CSS + Animations */}
+      <style jsx global>{`
+        @keyframes wave {
+          0% { background-position-x: 0; }
+          100% { background-position-x: 1000px; }
+        }
+        .waving-flag {
+          background: 
+            linear-gradient(45deg, transparent 49%, white 49%, white 51%, transparent 51%),
+            linear-gradient(-45deg, transparent 49%, white 49%, white 51%, transparent 51%),
+            linear-gradient(transparent 49%, #B22234 49%, #B22234 51%, transparent 51%),
+            repeating-linear-gradient(0deg, #B22234 0%, #B22234 7.69%, white 7.69%, white 15.38%),
+            #002147;
+          background-size: 2000px 100%;
+          animation: wave 20s linear infinite;
+          opacity: 0.9;
+        }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(60px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </main>
   );
 }
