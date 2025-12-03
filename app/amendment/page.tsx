@@ -8,7 +8,7 @@ export default function Amendment() {
       <div style={{borderBottom:"4px solid #111", paddingBottom:20, marginBottom:40, textAlign:"center"}}>
         <h1 style={{fontSize:36, textTransform:"uppercase", letterSpacing:1, marginBottom:10}}>The Competence Restoration Amendment</h1>
         <h2 style={{fontSize:18, fontStyle:"italic", color:"#444"}}>Constitutional Architecture for a Post-Ego Republic</h2>
-        <p style={{fontSize:14, marginTop:10}}>Drafted: December 2025 • New Philadelphia Node</p>
+        <p style={{fontSize:14, marginTop:10}}>Drafted: December 2025 • Status: Awaiting Pilot Designation</p>
       </div>
 
       {/* DOCUMENT BODY */}
@@ -79,7 +79,14 @@ export default function Amendment() {
             <li><strong>The Cost (The Reconciliation Tithe):</strong> To accept Immunity, the official must pay a one-time <strong>20% Exit Tax</strong> on liquid assets to the National Debt.</li>
             <li><strong>Exclusion:</strong> Immunity is VOID for violent crimes.</li>
           </ul>
-          <p><strong>Section 2: The Hybrid Rollout.</strong> Electronic voting remains Probationary for 5 years; Paper Ballots remain supreme.</p>
+
+          <p><strong>Section 2: The Congressional Pilot Mandate.</strong></p>
+          <ul style={{listStyleType:"circle", paddingLeft:20}}>
+            <li><strong>Selection Authority:</strong> The incumbent Legislative Body shall designate ten (10) municipalities to serve as "Beta Sites" for the initial deployment of the Drafted Council model.</li>
+            <li><strong>Evaluation:</strong> Expansion of the system to the Federal level is contingent upon the verified success (Debt Reduction + Infrastructure Improvement) of these Pilot Sites.</li>
+          </ul>
+
+          <p><strong>Section 3: The Hybrid Rollout.</strong> Electronic voting remains Probationary for 5 years; Paper Ballots remain supreme.</p>
         </div>
       </div>
 
@@ -87,4 +94,18 @@ export default function Amendment() {
       <div style={{marginTop:80, paddingTop:40, borderTop:"4px solid #111", background:"#f9f9f9", padding:30}}>
         <h3 style={{marginTop:0}}>Architect's Addendum: Reasoning & Logic</h3>
         <p><strong>1. The "Princeling" Prevention:</strong><br/>
-        To prevent nepotism where wealthy families
+        To prevent nepotism where wealthy families fake work history for their children, Article I mandates <em>Federal Tax Verification</em>. You cannot fake a W-2 history easily.</p>
+        
+        <p><strong>2. The "Congressional Pilot" Strategy:</strong><br/>
+        By allowing the current Congress to select the test cities (Article V, Sec 2), we incentivize cooperation rather than resistance. This turns the transition into a controlled scientific experiment overseen by the current government, reducing the risk of conflict.</p>
+
+        <p><strong>3. The "Reconciliation" Balance:</strong><br/>
+        To avoid Civil War, we offer a "Golden Bridge" (Amnesty) to the current elite, but we charge a toll (The 20% Exit Tax). This satisfies the public desire for justice while preventing the elite from burning the country down on their way out.</p>
+      </div>
+
+      <p style={{textAlign:"center", marginTop:60}}>
+        <a href="/" style={{fontSize:18, color:"#000", textDecoration: "underline"}}>← Return to Shadow Interface</a>
+      </p>
+    </div>
+  );
+}
