@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next"; // <--- 1. IMPORT ADDED
+import { Analytics } from "@vercel/analytics/next"; // <--- NOW THIS WILL WORK
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,7 +13,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// 2. METADATA UPDATED (For better SEO/Social Sharing)
 export const metadata: Metadata = {
   title: "The Competence Restoration Act",
   description: "National Shadow Interface for System v3.4",
@@ -30,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <Analytics /> {/* <--- 3. COMPONENT ADDED */}
+        <Analytics /> 
       </body>
     </html>
   );
