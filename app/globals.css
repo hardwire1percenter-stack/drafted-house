@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+/* Your custom styles go here, e.g.: */
+@theme {
+  --color-primary: #3b82f6;
+}
+
+body {
+  font-family: theme(fontFamily.sans);
+}
