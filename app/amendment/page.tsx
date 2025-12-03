@@ -2,7 +2,6 @@
 
 export default function Amendment() {
   return (
-    // Added backgroundColor and color to force light theme contrast
     <div style={{padding:40, fontFamily:"system-ui", maxWidth:900, margin:"auto", lineHeight:1.8, backgroundColor: "#ffffff", color: "#333333", minHeight:"100vh"}}>
       <h1 style={{textAlign:"center", fontSize:38}}>System v3.1-F</h1>
       <h2 style={{textAlign:"center", color:"#c00"}}>The Post-Ego Republic</h2>
@@ -14,68 +13,65 @@ export default function Amendment() {
 {`# System v3.1-F: Constitutional Architecture
 ## "Competence Over Charisma"
 
-### I. The Drafted House (Legislative)
-* **Selection:** Members are not elected; they are drafted by lottery from the citizenry, serving a single term (similar to jury duty).
-* **Mandate:** Removes campaign finance, lobbying, and reelection incentives from the legislative process.
+### I. The Eligibility Protocols (The "Stability" Filter)
+Participation in governance is a duty, but it requires proven stability. The "lottery" for the Draft is not random; it is drawn from a qualified pool of "Stable Citizens."
+
+#### A. The Universal Competence Filter
+To enter the Draft Pool or receive a Nomination, a citizen must meet ONE of the following Educational or Labor benchmarks to prove consistency and commitment:
+1.  **Education:** Minimum Associate Degree (Any Field).
+2.  **Labor Alternative:** * High School Diploma PLUS
+    * 4 Years continuous employment at a single employer, OR
+    * 6 Years consecutive employment across maximum two employers.
+
+#### B. Age & Tenure Brackets
+* **The Drafted House (Legislative):** * **Minimum Age:** 21
+    * **Maximum Age:** 55
+    * *Focus:* The active workforce; those currently building the nation.
+* **The Senate (Oversight/Judicial Tie-Breaker):**
+    * **Minimum Age:** 42 (House Minimum + 21)
+    * **Maximum Age:** 65
+    * *Focus:* Senior oversight; experience tempering action.
+* **The Administrative Council (Executive):**
+    * **Minimum Age:** 42 (Matches Senate)
+    * **Maximum Age:** NO LIMIT
+    * *Focus:* Wisdom and long-term stewardship.
+
+### II. The Drafted House (Legislative Mechanics)
+* **Selection:** Members are drafted by lottery from the "Qualified Pool" (see Section I).
+* **Mandate:** Serving a single term (similar to jury duty). Removes campaign finance, lobbying, and reelection incentives.
 * **Function:** Proposes and debates legislation based on real-world needs, not donor requests.
 
-### II. The Judiciary (Appointment & Tenure)
-The Judicial Branch retains the structural hierarchy of the legacy system but undergoes a radical change in selection to ensure non-partisan interpretation of the law.
+### III. The Judiciary (Appointment & Tenure)
+1.  **Nomination:** The Administrative Council nominates a slate.
+2.  **The Red Council Vetting:** Nominees are vetted by AI strictly for constitutional qualifications.
+3.  **The System Vote:** The System tallies objective metrics to select the jurist.
+4.  **Tie-Breakers:** In the rare event of a metric tie, The Senate casts the deciding vote.
 
-1.  **Nomination:** The Administrative Council nominates a slate of potential appointees.
-2.  **The AI / Red Council Vetting:**
-    * All nominees are vetted by the Red Council (AI oversight) strictly for constitutional qualifications, case history, and legal competency.
-    * Partisan leanings are flagged and neutralized.
-3.  **The System Vote:**
-    * The vetted list is submitted to the "System."
-    * Nominees are assigned a preference number based on objective metrics.
-    * The System tallies the numbers to select the most qualified jurist.
-4.  **Tie-Breakers:** In the rare event of a metric tie, the Senate casts the deciding vote.
+### IV. Operational Mechanics
+* **The Pension System:** Service guarantees a life pension, removing the need for post-office lobbying jobs.
+* **Term Limits:** Absolute limits enforced on all positions.
+* **Graduated Capability:** Access to Council nominations is gated. One must prove competency at municipal levels before federal eligibility.
 
-### III. Operational Mechanics
-To prevent corruption and stagnation, the human element is managed through strict resource controls:
-
-* **The Pension System:** Service guarantees a life pension, removing the need for post-office "consulting" gigs or lobbying jobs.
-* **Term Limits:** Absolute limits are enforced on all appointed and drafted positions. No career politicians.
-* **Graduated Capability:** Access to higher levels of governance is gated by a "Graduated System of Higher Capability." One must prove competency at lower municipal levels before being eligible for nominations to higher state or federal duties.
-
-### IV. The 4th Branch: The Citizen Veto
+### V. The 4th Branch: The Citizen Veto
 * **Direct Check:** Every citizen holds a digital key.
-* **Power:** While citizens do not write every law, they retain the absolute power to VETO any act of the Drafted House via the app.
+* **Power:** Citizens retain the absolute power to VETO any act of the Drafted House via the app.
 * **Threshold:** If a bill hits a Veto threshold (e.g., 60%), it is immediately nullified.
 
-### V. The Cultural Engine (The "F" Patch)
-A perfect system fails if the culture rots. To prevent stagnation and the worship of celebrity, v3.1-F implements "Cultural Software" reforms:
+### VI. The Cultural Engine (The "F" Patch)
+1.  **The Builder's Metric:** Social influence is tied to the **Graduated Capability** scale. Builders (Tier 2+) are amplified; performative outrage is deprecated.
+2.  **The Horizon Mandate:** To prevent stagnation, 15% of GDP is constitutionally mandated toward a "Frontier Goal" (e.g., Fusion, Space) every 20 years.
 
-1.  **The Builder's Metric:**
-    * Social influence is no longer decoupled from utility.
-    * Algorithm weight in public discourse is tied to the **Graduated Capability** scale.
-    * Citizens who build, fix, and maintain the republic (Tier 2+) are amplified. Performative outrage (Tier 0) is deprecated.
-
-2.  **The Horizon Mandate:**
-    * To prevent the stasis that destroys stable civilizations, the Republic is constitutionally mandated to pursue a **Grand Challenge** every 20 years.
-    * 15% of national resources are directed toward a singular Frontier Goal (e.g., Fusion Energy, Atmospheric Repair, Off-World Expansion).
-    * Humanity must always have a frontier to conquer, or it will turn on itself.
-
-### VI. The Transition Strategy: "The Viral Host"
-Revolution is obsolete. System v3.1 does not conquer the old system; it out-performs it until the old system becomes irrelevant.
-
-1.  **Phase 1: Incubation (The Rust Belt Protocol):**
-    * We deploy the "Shadow System" in failing municipalities (e.g., rust belt towns) where trust in local government is <20%.
-    * The App runs in parallel to the City Council. It tracks the same issues, offers better solutions, and visualizes the budget transparently.
-2.  **Phase 2: The Competence Gap:**
-    * Citizens will see the "Shadow Vote" solving problems faster than the "Official Vote."
-    * Legitimacy migrates from the City Hall to the Phone. The official government is not overthrown; it is simply ignored.
-3.  **Phase 3: The Host Integration:**
-    * To survive, the legacy government will be forced to adopt the v3.1 operating system to regain engagement.
-    * Once adopted, the "Viral Host" rewriting begins: Term limits, Veto power, and AI auditing are installed as updates.
-    * The transition is bloodless, voluntary, and inevitable.
+### VII. The Transition Strategy: "The Viral Host"
+Revolution is obsolete. System v3.1 out-performs the old system until the old system becomes irrelevant.
+1.  **Incubation:** Deploy the "Shadow System" in failing rust-belt municipalities.
+2.  **Competence Gap:** Citizens see the App solving problems faster than City Hall.
+3.  **Host Integration:** The legacy government is forced to adopt v3.1 tools to survive, effectively rewriting its own DNA.
 
 ---
 **Appendix C – 120-year simulation results:**
-* **Survival Rate:** 94% (up from 91%)
-* **Stagnation Index:** Dropped to 12% (The Horizon Mandate kept innovation high).
-* **Cultural Output:** Shifted from "Entertainment-Dominant" to "Achievement-Dominant."`}
+* **Survival Rate:** 96% (Increased due to Stability Filters)
+* **Corruption Index:** Near Zero (Career politicians eliminated)
+* **Stagnation Index:** 12% (Mitigated by Horizon Mandate)`}
       </pre>
 
       <p style={{textAlign:"center", marginTop:50}}>
