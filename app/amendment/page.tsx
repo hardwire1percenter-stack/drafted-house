@@ -2,85 +2,94 @@
 
 export default function Amendment() {
   return (
-    <div style={{padding:40, fontFamily:"system-ui", maxWidth:900, margin:"auto", lineHeight:1.8, backgroundColor: "#ffffff", color: "#333333", minHeight:"100vh"}}>
-      <h1 style={{textAlign:"center", fontSize:38}}>System v3.1-F</h1>
-      <h2 style={{textAlign:"center", color:"#c00"}}>The Post-Ego Republic</h2>
-      <p style={{textAlign:"center", fontSize:18, marginBottom:50}}>
-        Primary Architect: Jason Steed — December 2025
-      </p>
+    <div style={{padding:60, fontFamily:"Georgia, serif", maxWidth:900, margin:"auto", lineHeight:1.6, backgroundColor: "#ffffff", color: "#111111", minHeight:"100vh"}}>
+      
+      {/* HEADER */}
+      <div style={{borderBottom:"4px solid #111", paddingBottom:20, marginBottom:40, textAlign:"center"}}>
+        <h1 style={{fontSize:42, textTransform:"uppercase", letterSpacing:2, marginBottom:10}}>System v3.4</h1>
+        <h2 style={{fontSize:18, fontStyle:"italic", color:"#444"}}>The "Optimized" Post-Ego Constitution</h2>
+        <p style={{fontSize:14, marginTop:10}}>Drafted: December 2025 • Status: FINAL</p>
+      </div>
 
-      <pre style={{background:"#f4f4f4", padding:30, borderRadius:12, overflowX:"auto", whiteSpace:"pre-wrap", fontSize:15, border:"1px solid #ddd", color:"#333"}}>
-{`# System v3.1-F: Constitutional Architecture
-## "Competence Over Charisma"
+      {/* DOCUMENT BODY */}
+      <div style={{fontSize:16}}>
+        
+        {/* ARTICLE I */}
+        <div style={{marginBottom:40}}>
+          <h3 style={{textTransform:"uppercase", borderBottom:"1px solid #ccc", paddingBottom:5}}>Article I. The Eligibility Protocols</h3>
+          <p><strong>Section 1: The Stability Filter.</strong> Entry into the Draft Pool requires verified stability via ONE of the following tracks:</p>
+          <ul style={{listStyleType:"circle", paddingLeft:20}}>
+            <li><strong>Academic Track:</strong> Associate Degree or higher.</li>
+            <li><strong>Labor Track:</strong> High School Diploma + 4 years verified employment.</li>
+            <li><strong>Experience Track:</strong> 10 years verified employment (No Diploma).</li>
+            <li><em>*Verification:</em> Employment must be substantiated by Federal Tax Filings to preclude nepotistic appointments.</li>
+          </ul>
+        </div>
 
-### I. The Eligibility Protocols (The "Stability" Filter)
-Participation in governance is a duty, but it requires proven stability. The "lottery" for the Draft is not random; it is drawn from a qualified pool of "Stable Citizens."
+        {/* ARTICLE II */}
+        <div style={{marginBottom:40}}>
+          <h3 style={{textTransform:"uppercase", borderBottom:"1px solid #ccc", paddingBottom:5}}>Article II. The Drafted House</h3>
+          <p><strong>Section 1: The Single-Subject Mandate.</strong> To ensure competency, "Omnibus Bills" are prohibited. Every piece of legislation must address a single, distinct subject. Multi-subject bills are automatically void.</p>
+          <p><strong>Section 2: The Analog Backstop.</strong> Final ratification of all statutes must be executed via <strong>Physical Paper Ballot</strong>.</p>
+          <p><strong>Section 3: The Performance Contract.</strong></p>
+          <ul style={{listStyleType:"circle", paddingLeft:20}}>
+            <li><strong>Compensation:</strong> Salary equivalent to O-6 Military Grade ($150k+).</li>
+            <li><strong>Pension:</strong> Awarded only upon full term completion. Bonus applied if National Debt decreases.</li>
+            <li><strong>Corruption:</strong> Proven outside influence results in Total Pension Forfeiture + Salary Clawback.</li>
+          </ul>
+        </div>
 
-#### A. The Universal Competence Filter
-To enter the Draft Pool or receive a Nomination, a citizen must meet ONE of the following Educational or Labor benchmarks to prove consistency and commitment:
-1.  **Education:** Minimum Associate Degree (Any Field).
-2.  **Labor Alternative:** * High School Diploma PLUS
-    * 4 Years continuous employment at a single employer, OR
-    * 6 Years consecutive employment across maximum two employers.
+        {/* ARTICLE III */}
+        <div style={{marginBottom:40}}>
+          <h3 style={{textTransform:"uppercase", borderBottom:"1px solid #ccc", paddingBottom:5}}>Article III. The Judiciary</h3>
+          <p><strong>Section 1: Graduated Selection.</strong> Appointments require prior service: District (12 Years) → Appellate (12 Years) → High Court.</p>
+          <p><strong>Section 2: Accountability.</strong> Judges are contractually obligated to Strict Textualism. "Legislating from the Bench" triggers immediate removal.</p>
+          <p><strong>Section 3: Penalties.</strong></p>
+          <ul style={{listStyleType:"circle", paddingLeft:20}}>
+            <li><strong>Standard:</strong> Pension forfeiture and 4-year salary clawback.</li>
+            <li><strong>Egregious (Treason/Bribery):</strong> Total Asset Forfeiture + Mandatory Prison.</li>
+          </ul>
+        </div>
 
-#### B. Age & Tenure Brackets
-* **The Drafted House (Legislative):**
-    * **Term Length:** 4 Years (Single Term).
-    * **Minimum Age:** 21
-    * **Maximum Age:** 55
-    * *Focus:* The active workforce; those currently building the nation.
+        {/* ARTICLE IV */}
+        <div style={{marginBottom:40}}>
+          <h3 style={{textTransform:"uppercase", borderBottom:"1px solid #ccc", paddingBottom:5}}>Article IV. Operational Mechanics</h3>
+          <p><strong>Section 1: The Solvency First Mandate.</strong> The first 10% of Federal Revenue is legally garnished for Debt Principal repayment before any spending occurs.</p>
+          <p><strong>Section 2: Custodial Trusts.</strong></p>
+          <ul style={{listStyleType:"circle", paddingLeft:20}}>
+            <li><strong>Protection:</strong> Arbitrary Asset Forfeiture is BANNED.</li>
+            <li><strong>Restitution:</strong> Legitimate assets of convicts (>15 year sentence) are held in a Frozen Trust and released only upon successful completion of probation.</li>
+          </ul>
+        </div>
 
-* **The Senate (Oversight/Judicial Tie-Breaker):**
-    * **Minimum Age:** 25 (Calculated: House Term [4] + 21)
-    * **Maximum Age:** 65
-    * *Focus:* Senior oversight; experience tempering action.
+        {/* ARTICLE V */}
+        <div style={{marginBottom:40}}>
+          <h3 style={{textTransform:"uppercase", borderBottom:"1px solid #ccc", paddingBottom:5}}>Article V. The Transition Strategy</h3>
+          <p><strong>Section 1: The Protocol of Limited Immunity ("The Golden Bridge").</strong></p>
+          <ul style={{listStyleType:"circle", paddingLeft:20}}>
+            <li><strong>The Offer:</strong> Resigning officials are granted Immunity for past Non-Violent Political Malfeasance.</li>
+            <li><strong>The Cost (The Reconciliation Tithe):</strong> To accept Immunity, the official must pay a one-time <strong>20% Exit Tax</strong> on liquid assets to the National Debt.</li>
+            <li><strong>Exclusion:</strong> Immunity is VOID for violent crimes.</li>
+          </ul>
+          <p><strong>Section 2: The Hybrid Rollout.</strong> Electronic voting remains Probationary for 5 years; Paper Ballots remain supreme.</p>
+        </div>
+      </div>
 
-* **The Administrative Council (Executive):**
-    * **Minimum Age:** 25 (Matches Senate Minimum)
-    * **Maximum Age:** NO LIMIT
-    * **Requirements:** Same Education/Labor stability filters as House/Senate.
-    * *Focus:* Wisdom and long-term stewardship.
+      {/* ARCHITECT'S ADDENDUM */}
+      <div style={{marginTop:80, paddingTop:40, borderTop:"4px solid #111", background:"#f9f9f9", padding:30}}>
+        <h3 style={{marginTop:0}}>Architect's Addendum: Simulation V3.4</h3>
+        <p><strong>1. The "Princeling" Patch:</strong><br/>
+        Simulations showed wealthy families using shell companies to fake "work history" for their children. The <em>Tax Verification Requirement</em> in Article I closes this loophole.</p>
+        
+        <p><strong>2. The "Single-Subject" Speed Fix:</strong><br/>
+        Simulations showed that drafted citizens froze when faced with 2,000-page bills. The <em>Single-Subject Mandate</em> (Article II) ensures laws are short, readable, and vote-able.</p>
 
-### II. The Drafted House (Legislative Mechanics)
-* **Selection:** Members are drafted by lottery from the "Qualified Pool" (see Section I).
-* **Mandate:** Serving a single 4-year term. Removes campaign finance, lobbying, and reelection incentives.
-* **Function:** Proposes and debates legislation based on real-world needs, not donor requests.
+        <p><strong>3. The "Reconciliation" Balance:</strong><br/>
+        Giving free amnesty caused public unrest (12% rebellion risk). Adding the <em>20% Exit Tax</em> (Article V) satisfied the public desire for justice while keeping the "Golden Bridge" open for the elites. Rebellion risk dropped to near zero.</p>
+      </div>
 
-### III. The Judiciary (Appointment & Tenure)
-1.  **Nomination:** The Administrative Council nominates a slate.
-2.  **The Red Council Vetting:** Nominees are vetted by AI strictly for constitutional qualifications.
-3.  **The System Vote:** The System tallies objective metrics to select the jurist.
-4.  **Tie-Breakers:** In the rare event of a metric tie, The Senate casts the deciding vote.
-
-### IV. Operational Mechanics
-* **The Pension System:** Service guarantees a life pension, removing the need for post-office lobbying jobs.
-* **Term Limits:** Absolute limits enforced on all positions.
-* **Graduated Capability:** Access to Council nominations is gated. One must prove competency at municipal levels before federal eligibility.
-
-### V. The 4th Branch: The Citizen Veto
-* **Direct Check:** Every citizen holds a digital key.
-* **Power:** Citizens retain the absolute power to VETO any act of the Drafted House via the app.
-* **Threshold:** If a bill hits a Veto threshold (e.g., 60%), it is immediately nullified.
-
-### VI. The Cultural Engine (The "F" Patch)
-1.  **The Builder's Metric:** Social influence is tied to the **Graduated Capability** scale. Builders (Tier 2+) are amplified; performative outrage is deprecated.
-2.  **The Horizon Mandate:** To prevent stagnation, 15% of GDP is constitutionally mandated toward a "Frontier Goal" (e.g., Fusion, Space) every 20 years.
-
-### VII. The Transition Strategy: "The Viral Host"
-Revolution is obsolete. System v3.1 out-performs the old system until the old system becomes irrelevant.
-1.  **Incubation:** Deploy the "Shadow System" in failing rust-belt municipalities.
-2.  **Competence Gap:** Citizens see the App solving problems faster than City Hall.
-3.  **Host Integration:** The legacy government is forced to adopt v3.1 tools to survive, effectively rewriting its own DNA.
-
----
-**Appendix C – 120-year simulation results:**
-* **Survival Rate:** 96%
-* **Corruption Index:** Near Zero
-* **Stagnation Index:** 12%`}
-      </pre>
-
-      <p style={{textAlign:"center", marginTop:50}}>
-        <a href="/" style={{fontSize:20, color:"#0066cc", textDecoration: "none", borderBottom:"1px solid #0066cc"}}>← Back to voting interface</a>
+      <p style={{textAlign:"center", marginTop:60}}>
+        <a href="/" style={{fontSize:18, color:"#000", textDecoration: "underline"}}>← Return to Drafted House Interface</a>
       </p>
     </div>
   );
