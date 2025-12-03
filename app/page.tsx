@@ -1,28 +1,28 @@
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-black">
+    <main className="relative min-h-screen overflow-hidden">
       {/* Waving American flag background */}
       <div className="absolute inset-0 waving-flag" />
 
-      {/* Dark overlay so text is readable */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/60" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
-        {/* Title with patriotic glow */}
-        <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 text-white drop-shadow-2xl">
-          {"Drafted House".split("").map((letter, i) => (
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-8 text-center">
+        <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-white drop-shadow-2xl mb-6">
+          {"Drafted House".split("").map((char, i) => (
             <span
               key={i}
-              className="inline-block hover:text-red-500 transition-colors duration-300"
+              className="inline-block hover:text-red-400 transition-colors"
               style={{ animation: `fadeInUp 0.8s ease-out ${i * 0.08}s both` }}
             >
-              {letter === " " ? "\u00A0" : letter}
+              {char === " " ? "\u00A0" : char}
             </span>
           ))}
         </h1>
 
-        <p className="text-2xl md:text-4xl font-bold text-white drop-shadow-lg mb-12 max-w-4xl">
-          Where America builds its future — one draft at a time.
+        <p className="text-2xl md:text-4xl font-bold text-white drop-shadow-lg max-w-4xl mb-12">
+          Building America’s future — one draft at a time.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-8">
@@ -34,30 +34,28 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Patriotic down arrow */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2L12 22M12 22L6 16M12 22L18 16" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        <div className="absolute bottom-10 animate-bounce">
+          <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
       </div>
 
-      {/* Waving Flag CSS + Animations */}
+      {/* Waving Flag + Animations */}
       <style jsx global>{`
         @keyframes wave {
           0% { background-position-x: 0; }
           100% { background-position-x: 1000px; }
         }
         .waving-flag {
-          background: 
+          background:
             linear-gradient(45deg, transparent 49%, white 49%, white 51%, transparent 51%),
             linear-gradient(-45deg, transparent 49%, white 49%, white 51%, transparent 51%),
             linear-gradient(transparent 49%, #B22234 49%, #B22234 51%, transparent 51%),
             repeating-linear-gradient(0deg, #B22234 0%, #B22234 7.69%, white 7.69%, white 15.38%),
             #002147;
           background-size: 2000px 100%;
-          animation: wave 20s linear infinite;
-          opacity: 0.9;
+          animation: wave 18s linear infinite;
         }
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(60px); }
