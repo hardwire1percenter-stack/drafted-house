@@ -93,9 +93,9 @@ export default function Home() {
           <div style={{fontSize: 12, fontWeight: "bold", color: "#c00", textTransform: "uppercase", marginBottom: 5}}>
             Live Ratification Session
           </div>
-          <h2 style={{margin: 0, fontSize: 22, lineHeight: 1.3, fontFamily: "sans-serif", fontWeight: "bold"}}>Proposal v3.4 — "The Restoration"</h2>
+          <h2 style={{margin: 0, fontSize: 22, lineHeight: 1.3, fontFamily: "sans-serif", fontWeight: "bold"}}>H.R.2201 — "The Competence Restoration Act"</h2>
           <p style={{color: "#444", marginTop: 10, fontSize: 15, lineHeight: 1.5, fontFamily: "sans-serif"}}>
-            <strong>Mandate:</strong> Establishing a government of <strong>Competency Over Corruption</strong>. Implements Stability Filters, Single-Subject Bills, and the Fiscal Integrity Protocol.
+            <strong>Mandate:</strong> Establishing a government of <strong>Competency Over Corruption</strong>.
             <br/>
             <strong>System Check:</strong> <span style={{color:"green", fontWeight:"bold"}}>READY FOR RATIFICATION</span>
           </p>
