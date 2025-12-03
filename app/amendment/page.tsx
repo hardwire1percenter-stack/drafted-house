@@ -24,21 +24,26 @@ To enter the Draft Pool or receive a Nomination, a citizen must meet ONE of the 
     * 6 Years consecutive employment across maximum two employers.
 
 #### B. Age & Tenure Brackets
-* **The Drafted House (Legislative):** * **Minimum Age:** 21
+* **The Drafted House (Legislative):**
+    * **Term Length:** 4 Years (Single Term).
+    * **Minimum Age:** 21
     * **Maximum Age:** 55
     * *Focus:* The active workforce; those currently building the nation.
+
 * **The Senate (Oversight/Judicial Tie-Breaker):**
-    * **Minimum Age:** 42 (House Minimum + 21)
+    * **Minimum Age:** 25 (Calculated: House Term [4] + 21)
     * **Maximum Age:** 65
     * *Focus:* Senior oversight; experience tempering action.
+
 * **The Administrative Council (Executive):**
-    * **Minimum Age:** 42 (Matches Senate)
+    * **Minimum Age:** 25 (Matches Senate Minimum)
     * **Maximum Age:** NO LIMIT
+    * **Requirements:** Same Education/Labor stability filters as House/Senate.
     * *Focus:* Wisdom and long-term stewardship.
 
 ### II. The Drafted House (Legislative Mechanics)
 * **Selection:** Members are drafted by lottery from the "Qualified Pool" (see Section I).
-* **Mandate:** Serving a single term (similar to jury duty). Removes campaign finance, lobbying, and reelection incentives.
+* **Mandate:** Serving a single 4-year term. Removes campaign finance, lobbying, and reelection incentives.
 * **Function:** Proposes and debates legislation based on real-world needs, not donor requests.
 
 ### III. The Judiciary (Appointment & Tenure)
@@ -69,9 +74,9 @@ Revolution is obsolete. System v3.1 out-performs the old system until the old sy
 
 ---
 **Appendix C – 120-year simulation results:**
-* **Survival Rate:** 96% (Increased due to Stability Filters)
-* **Corruption Index:** Near Zero (Career politicians eliminated)
-* **Stagnation Index:** 12% (Mitigated by Horizon Mandate)`}
+* **Survival Rate:** 96%
+* **Corruption Index:** Near Zero
+* **Stagnation Index:** 12%`}
       </pre>
 
       <p style={{textAlign:"center", marginTop:50}}>
