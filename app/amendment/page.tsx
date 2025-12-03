@@ -65,7 +65,7 @@ export default function Amendment() {
           <p><strong>Section 2: Custodial Trusts.</strong></p>
           <ul style={{listStyleType:"circle", paddingLeft:20}}>
             <li><strong>Protection:</strong> Arbitrary Asset Forfeiture is BANNED.</li>
-            <li><strong>Restitution:</strong> Legitimate assets of convicts (&gt;15 year sentence) are held in a Frozen Trust and released only upon successful completion of probation.</li>
+            <li><strong>Restitution:</strong> Legitimate assets of convicts (&gt;10 year sentence) are held in a Frozen Trust and released only upon successful completion of probation.</li>
           </ul>
           <p><strong>Section 3: The Clean Break.</strong> Retired officials are contractually banned from future government employment or lobbying.</p>
         </div>
