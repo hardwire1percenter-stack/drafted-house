@@ -9,7 +9,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
 
-  // Polling the Shadow Ledger
+  // 1. Polling the Shadow Ledger (API)
   const fetchVotes = async () => {
     try {
       const res = await fetch('/api/vote');
@@ -27,7 +27,7 @@ export default function Home() {
     }
   };
 
-  // Casting the Vote
+  // 2. Casting the Vote
   const vote = async (type: 'yes' | 'no' | 'veto') => {
     setMessage('Transmitting...');
     try {
@@ -38,6 +38,7 @@ export default function Home() {
       });
       const data = await res.json();
       
+      // Update local numbers immediately for responsiveness
       setYes(data.yes);
       setNo(data.no);
       setVeto(data.veto);
@@ -52,6 +53,7 @@ export default function Home() {
     }
   };
 
+  // 3. Auto-Refresh Interval (Live Feel)
   useEffect(() => {
     fetchVotes();
     const interval = setInterval(fetchVotes, 3000); 
@@ -94,9 +96,9 @@ export default function Home() {
           </div>
           <h2 style={{margin: 0, fontSize: 22, lineHeight: 1.3, fontFamily: "sans-serif", fontWeight: "bold"}}>H.R. 7702 — "The Horizon Act"</h2>
           <p style={{color: "#444", marginTop: 10, fontSize: 15, lineHeight: 1.5, fontFamily: "sans-serif"}}>
-            <strong>Mandate:</strong> Allocates 15% of GDP to Fusion Energy Development (Horizon Goal).
+            <strong>Mandate:</strong> Allocates 15% of GDP to Fusion Energy Development.
             <br/>
-            <strong>Single Subject Check:</strong> <span style={{color:"green"}}>PASSED</span>
+            <strong>Single Subject Check:</strong> <span style={{color:"green", fontWeight:"bold"}}>PASSED</span>
           </p>
         </div>
 
@@ -150,7 +152,7 @@ export default function Home() {
         )}
       </div>
 
-      {/* FOOTER */}
+      {/* FOOTER LINK TO AMENDMENT */}
       <div style={{marginTop: 50}}>
         <a href="/amendment" style={{fontSize: 16, color: "#111", textDecoration: "underline", fontWeight: "bold"}}>
           Read the Competence Restoration Amendment
