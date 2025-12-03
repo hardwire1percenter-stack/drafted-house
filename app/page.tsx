@@ -126,20 +126,20 @@ export default function Home() {
               onClick={() => vote('yes')} 
               style={{flex: 1, padding: 15, fontSize: 16, background: "#f0f0f0", border: "1px solid #ccc", cursor: "pointer", fontWeight: "bold", color: "#333"}}
             >
-              RATIFY
+              Yes
             </button>
             <button 
               onClick={() => vote('no')} 
               style={{flex: 1, padding: 15, fontSize: 16, background: "#333", color: "#fff", border: "1px solid #333", cursor: "pointer", fontWeight: "bold"}}
             >
-              DECLINE
+              No
             </button>
           </div>
           <button 
             onClick={() => vote('veto')} 
             style={{width: "100%", padding: 15, fontSize: 16, background: "#a00", color: "white", border: "none", cursor: "pointer", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px"}}
           >
-            Invoke Veto
+            Veto
           </button>
         </div>
 
