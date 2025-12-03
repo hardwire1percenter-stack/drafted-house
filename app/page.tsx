@@ -9,7 +9,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
 
-  // 1. Polling the Shadow Ledger (API)
+  // 1. Sync with the Ledger
   const fetchVotes = async () => {
     try {
       const res = await fetch('/api/vote');
@@ -23,13 +23,14 @@ export default function Home() {
       setLoading(false);
     } catch (e) {
       console.error(e);
+      // If the API fails, we don't crash, we just show offline status
       setLoading(false);
     }
   };
 
-  // 2. Casting the Vote
+  // 2. Transmit Vote
   const vote = async (type: 'yes' | 'no' | 'veto') => {
-    setMessage('Transmitting...');
+    setMessage('Transmitting to Ledger...');
     try {
       const res = await fetch('/api/vote', {
         method: 'POST',
@@ -38,7 +39,6 @@ export default function Home() {
       });
       const data = await res.json();
       
-      // Update local numbers immediately for responsiveness
       setYes(data.yes);
       setNo(data.no);
       setVeto(data.veto);
@@ -46,14 +46,14 @@ export default function Home() {
       if (data.alreadyVoted) {
         setMessage('Access Denied: One vote per citizen ID per session.');
       } else {
-        setMessage('Vote Confirmed on Shadow Ledger.');
+        setMessage('Vote Confirmed. Screenshot this to share.');
       }
     } catch (e) {
       setMessage('Connection Error: Node Offline.');
     }
   };
 
-  // 3. Auto-Refresh Interval (Live Feel)
+  // 3. Live Polling
   useEffect(() => {
     fetchVotes();
     const interval = setInterval(fetchVotes, 3000); 
@@ -79,7 +79,7 @@ export default function Home() {
       <div style={{marginBottom: 40}}>
         <h1 style={{fontSize: 28, margin: "0 0 10px 0", letterSpacing: "1px", textTransform: "uppercase"}}>The Competence Restoration Act</h1>
         <p style={{fontSize: 14, color: "#666", fontStyle: "italic", borderTop: "1px solid #ddd", borderBottom: "1px solid #ddd", padding: "10px 0", width: "80%", margin: "0 auto"}}>
-          Shadow Interface • New Philadelphia Node
+          National Shadow Interface • Primary Node
         </p>
       </div>
 
@@ -158,7 +158,7 @@ export default function Home() {
           Read the Competence Restoration Amendment
         </a>
         <p style={{marginTop: 20, fontSize: 12, color: "#999", maxWidth: 400, margin: "20px auto", fontFamily: "sans-serif"}}>
-          Author: Jason Steed • System v3.4 • Phase 1 Beta
+          System v3.4 • Verified Deployment
         </p>
       </div>
     </div>
