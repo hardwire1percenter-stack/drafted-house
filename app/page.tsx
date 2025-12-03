@@ -23,7 +23,6 @@ export default function Home() {
       setLoading(false);
     } catch (e) {
       console.error(e);
-      // If the API fails, we don't crash, we just show offline status
       setLoading(false);
     }
   };
@@ -92,13 +91,13 @@ export default function Home() {
       }}>
         <div style={{borderBottom: "1px solid #eee", paddingBottom: 15, marginBottom: 20}}>
           <div style={{fontSize: 12, fontWeight: "bold", color: "#c00", textTransform: "uppercase", marginBottom: 5}}>
-            Live Shadow Session
+            Live Ratification Session
           </div>
-          <h2 style={{margin: 0, fontSize: 22, lineHeight: 1.3, fontFamily: "sans-serif", fontWeight: "bold"}}>H.R. 7702 — "The Horizon Act"</h2>
+          <h2 style={{margin: 0, fontSize: 22, lineHeight: 1.3, fontFamily: "sans-serif", fontWeight: "bold"}}>Proposal v3.4 — "The Restoration"</h2>
           <p style={{color: "#444", marginTop: 10, fontSize: 15, lineHeight: 1.5, fontFamily: "sans-serif"}}>
-            <strong>Mandate:</strong> Allocates 15% of GDP to Fusion Energy Development.
+            <strong>Mandate:</strong> Establishing a government of <strong>Competency over Corruption</strong> via Stability Filters, Single-Subject Bills, and the Fiscal Integrity Protocol.
             <br/>
-            <strong>Single Subject Check:</strong> <span style={{color:"green", fontWeight:"bold"}}>PASSED</span>
+            <strong>System Check:</strong> <span style={{color:"green", fontWeight:"bold"}}>READY FOR RATIFICATION</span>
           </p>
         </div>
 
@@ -127,13 +126,13 @@ export default function Home() {
               onClick={() => vote('yes')} 
               style={{flex: 1, padding: 15, fontSize: 16, background: "#f0f0f0", border: "1px solid #ccc", cursor: "pointer", fontWeight: "bold", color: "#333"}}
             >
-              YES
+              RATIFY
             </button>
             <button 
               onClick={() => vote('no')} 
               style={{flex: 1, padding: 15, fontSize: 16, background: "#333", color: "#fff", border: "1px solid #333", cursor: "pointer", fontWeight: "bold"}}
             >
-              NO
+              DECLINE
             </button>
           </div>
           <button 
