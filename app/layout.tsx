@@ -1,4 +1,4 @@
-'use client'; // ← THIS LINE FIXES EVERYTHING
+'use client';
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
