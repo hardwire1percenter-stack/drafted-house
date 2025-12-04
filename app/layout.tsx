@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
     // The name below must match your uploaded file exactly!
-    images: ['/webpage preview.jpg'], 
+    images: ['/webpage preview.png'], 
   },
 };
 
