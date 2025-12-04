@@ -3,7 +3,7 @@
 import { kv } from '@vercel/kv'
 import { headers } from 'next/headers'
 
-// Get the current counts
+// Get the current count (for visits or votes)
 export async function getCount(key: string) {
   const value = await kv.get(key)
   return Number(value) || 0
@@ -11,8 +11,8 @@ export async function getCount(key: string) {
 
 // Secure Vote with IP Tracking
 export async function castVote(type: string) {
-  // 1. Get the user's IP address
-  const headersList = headers()
+  // 1. Get the user's IP address (Now using await for Next.js 16+)
+  const headersList = await headers()
   const ip = headersList.get('x-forwarded-for') || 'unknown'
   
   // 2. Create a unique ID for this user's vote status
@@ -34,7 +34,7 @@ export async function castVote(type: string) {
   return { success: true }
 }
 
-// (Optional) Keep this for your "Page Visits" counter if you use it
+// Helper for other counters if needed
 export async function incrementCount(key: string) {
   const value = await kv.incr(key)
   return Number(value)
