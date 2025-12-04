@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { getCount, castVote } from './actions'; // Importing the NEW secure function
 
 // --- CONFIGURATION ---
-const STARTING_YES = 1250;
-const STARTING_NO = 840;
+const STARTING_YES = 12250;
+const STARTING_NO = 845;
 const STARTING_VETO = 12;
 // ---------------------
 
