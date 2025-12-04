@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
     // Making sure this points to your PNG file
-    images: ['/webpage preview.png'], 
+    images: ['/webpage preview.jpg'], 
   },
 };
 
