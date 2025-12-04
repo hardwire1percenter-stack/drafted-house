@@ -1,19 +1,18 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getCount, incrementCount } from './actions';
+import { getCount, castVote } from './actions'; // Importing the NEW secure function
 
-// --- CONFIGURATION: SET YOUR STARTING NUMBERS HERE ---
-const STARTING_YES = 10250;
+// --- CONFIGURATION ---
+const STARTING_YES = 1250;
 const STARTING_NO = 840;
 const STARTING_VETO = 12;
-// -----------------------------------------------------
+// ---------------------
 
 export default function Home() {
   const [yes, setYes] = useState(0);
   const [no, setNo] = useState(0);
   const [veto, setVeto] = useState(0);
-  const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
   const [hasVoted, setHasVoted] = useState(false);
   
@@ -22,7 +21,7 @@ export default function Home() {
   const [hoverNo, setHoverNo] = useState(false);
   const [hoverVeto, setHoverVeto] = useState(false);
 
-  // Secret Admin Toggle
+  // Admin Toggle
   const [showRealStats, setShowRealStats] = useState(false);
 
   // Sync with Database
@@ -34,31 +33,32 @@ export default function Home() {
       setYes(y);
       setNo(n);
       setVeto(v);
-      setLoading(false);
     } catch (e) {
       console.error(e);
-      setLoading(false);
     }
   };
 
-  // Vote Action
-  const vote = async (type: 'yes' | 'no' | 'veto') => {
-    if (hasVoted) {
-      setMessage('Status: Vote Already Recorded.');
-      return;
-    }
-    setMessage('Transmitting to Ledger...');
+  // The New Secure Vote Action
+  const handleVote = async (type: 'yes' | 'no' | 'veto') => {
+    if (hasVoted) return;
 
-    if (type === 'yes') setYes(prev => prev + 1);
-    if (type === 'no') setNo(prev => prev + 1);
-    if (type === 'veto') setVeto(prev => prev + 1);
-    setHasVoted(true);
+    setMessage('Verifying Identity...');
 
-    try {
-      await incrementCount(`vote_${type}`);
-      setMessage('Vote Confirmed. Screenshot this to share.');
-    } catch (e) {
-      setMessage('Connection Error: Node Offline.');
+    // 1. Send vote to server to check IP
+    const result = await castVote(type);
+
+    if (result.success) {
+      // Success! Update screen
+      if (type === 'yes') setYes(prev => prev + 1);
+      if (type === 'no') setNo(prev => prev + 1);
+      if (type === 'veto') setVeto(prev => prev + 1);
+      
+      setHasVoted(true);
+      setMessage('Vote Confirmed. Identity Secured.');
+    } else {
+      // Failed (IP already used)
+      setHasVoted(true);
+      setMessage('Error: This Network Has Already Voted.');
     }
   };
 
@@ -86,17 +86,9 @@ export default function Home() {
       transition: "background 0.5s ease"
     }}>
       
-      {/* CSS Animations */}
       <style jsx global>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes pulse {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.05); }
-          100% { transform: scale(1); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
         .animate-fade { animation: fadeIn 0.8s ease-out forwards; }
         .number-box { transition: all 0.3s ease; }
         .number-box:hover { transform: translateY(-2px); }
@@ -114,12 +106,7 @@ export default function Home() {
         }}>
           The Competence Restoration Act
         </h1>
-        <p style={{
-          fontSize: "0.9rem", 
-          color: "#666", 
-          fontStyle: "italic", 
-          fontFamily: "monospace"
-        }}>
+        <p style={{fontSize: "0.9rem", color: "#666", fontStyle: "italic", fontFamily: "monospace"}}>
           National Shadow Interface • Primary Node • <span style={{color: "green"}}>SECURE</span>
         </p>
       </div>
@@ -137,27 +124,13 @@ export default function Home() {
         
         {/* CARD HEADER */}
         <div style={{marginBottom: "30px", borderBottom: "1px solid #eee", paddingBottom: "20px"}}>
-          <div style={{
-            fontSize: "12px", 
-            fontWeight: "bold", 
-            color: showRealStats ? "#c00" : "#009900", 
-            marginBottom: "5px", 
-            letterSpacing: "1px"
-          }}>
+          <div style={{fontSize: "12px", fontWeight: "bold", color: showRealStats ? "#c00" : "#009900", marginBottom: "5px", letterSpacing: "1px"}}>
              {showRealStats ? "⚠️ ADMIN DEBUG MODE ACTIVE" : "● LIVE RATIFICATION SESSION"}
           </div>
           <h2 style={{fontSize: "1.5rem", margin: 0, fontFamily: "sans-serif", fontWeight: 700}}>
             H.R.2201 — "The Competence Restoration Act"
           </h2>
-          
-          {/* RESTORED MANDATE SECTION */}
-          <p style={{
-            color: "#555", 
-            marginTop: "15px", 
-            fontSize: "1rem", 
-            lineHeight: "1.6", 
-            fontFamily: "sans-serif"
-          }}>
+          <p style={{color: "#555", marginTop: "15px", fontSize: "1rem", lineHeight: "1.6", fontFamily: "sans-serif"}}>
             <strong>Mandate:</strong> Establishing a government of <strong>Competency Over Corruption</strong>.
             <br/>
             <strong>System Check:</strong> <span style={{color:"#009900", fontWeight:"bold"}}>READY FOR RATIFICATION</span>
@@ -168,25 +141,17 @@ export default function Home() {
         <div style={{display: "flex", justifyContent: "space-between", marginBottom: "40px", gap: "10px"}}>
           {/* YES */}
           <div className="number-box" style={{textAlign: "center", flex: 1}}>
-            <div style={{fontSize: "2.5rem", fontWeight: 900, color: "#111"}}>
-              {Number(displayYes).toLocaleString()}
-            </div>
+            <div style={{fontSize: "2.5rem", fontWeight: 900, color: "#111"}}>{Number(displayYes).toLocaleString()}</div>
             <div style={{fontSize: "0.8rem", fontWeight: "bold", color: "#009900", letterSpacing: "1px"}}>AFFIRM</div>
           </div>
-
           {/* NO */}
           <div className="number-box" style={{textAlign: "center", flex: 1, borderLeft: "1px solid #eee", borderRight: "1px solid #eee"}}>
-            <div style={{fontSize: "2.5rem", fontWeight: 900, color: "#111"}}>
-              {Number(displayNo).toLocaleString()}
-            </div>
+            <div style={{fontSize: "2.5rem", fontWeight: 900, color: "#111"}}>{Number(displayNo).toLocaleString()}</div>
             <div style={{fontSize: "0.8rem", fontWeight: "bold", color: "#666", letterSpacing: "1px"}}>DISSENT</div>
           </div>
-
           {/* VETO */}
           <div className="number-box" style={{textAlign: "center", flex: 1}}>
-            <div style={{fontSize: "2.5rem", fontWeight: 900, color: "#c00"}}>
-              {Number(displayVeto).toLocaleString()}
-            </div>
+            <div style={{fontSize: "2.5rem", fontWeight: 900, color: "#c00"}}>{Number(displayVeto).toLocaleString()}</div>
             <div style={{fontSize: "0.8rem", fontWeight: "bold", color: "#c00", letterSpacing: "1px"}}>VETO</div>
           </div>
         </div>
@@ -194,98 +159,37 @@ export default function Home() {
         {/* BUTTONS */}
         <div style={{display: "flex", flexDirection: "column", gap: "15px"}}>
           <div style={{display: "flex", gap: "15px"}}>
-            
-            {/* YES BUTTON */}
             <button 
-              onClick={() => vote('yes')}
+              onClick={() => handleVote('yes')}
               onMouseEnter={() => setHoverYes(true)}
               onMouseLeave={() => setHoverYes(false)}
-              style={{
-                flex: 1,
-                padding: "15px",
-                fontSize: "1.1rem",
-                border: "none",
-                background: hoverYes ? "#d4edda" : "#f0f0f0",
-                color: hoverYes ? "#155724" : "#333",
-                cursor: "pointer",
-                fontWeight: "bold",
-                borderRadius: "5px",
-                transition: "all 0.2s ease",
-                transform: hoverYes ? "translateY(-2px)" : "none",
-                boxShadow: hoverYes ? "0 4px 10px rgba(0,0,0,0.1)" : "none"
-              }}
+              style={{flex: 1, padding: "15px", fontSize: "1.1rem", border: "none", background: hoverYes ? "#d4edda" : "#f0f0f0", color: hoverYes ? "#155724" : "#333", cursor: "pointer", fontWeight: "bold", borderRadius: "5px", transition: "all 0.2s ease", transform: hoverYes ? "translateY(-2px)" : "none", boxShadow: hoverYes ? "0 4px 10px rgba(0,0,0,0.1)" : "none"}}
             >
               Aye / Yes
             </button>
-
-            {/* NO BUTTON */}
             <button 
-              onClick={() => vote('no')}
+              onClick={() => handleVote('no')}
               onMouseEnter={() => setHoverNo(true)}
               onMouseLeave={() => setHoverNo(false)}
-              style={{
-                flex: 1,
-                padding: "15px",
-                fontSize: "1.1rem",
-                border: "none",
-                background: hoverNo ? "#444" : "#333",
-                color: "#fff",
-                cursor: "pointer",
-                fontWeight: "bold",
-                borderRadius: "5px",
-                transition: "all 0.2s ease",
-                transform: hoverNo ? "translateY(-2px)" : "none",
-                boxShadow: hoverNo ? "0 4px 10px rgba(0,0,0,0.2)" : "none"
-              }}
+              style={{flex: 1, padding: "15px", fontSize: "1.1rem", border: "none", background: hoverNo ? "#444" : "#333", color: "#fff", cursor: "pointer", fontWeight: "bold", borderRadius: "5px", transition: "all 0.2s ease", transform: hoverNo ? "translateY(-2px)" : "none", boxShadow: hoverNo ? "0 4px 10px rgba(0,0,0,0.2)" : "none"}}
             >
               Nay / No
             </button>
           </div>
-
-          {/* VETO BUTTON */}
           <button 
-            onClick={() => vote('veto')}
+            onClick={() => handleVote('veto')}
             onMouseEnter={() => setHoverVeto(true)}
             onMouseLeave={() => setHoverVeto(false)}
-            style={{
-              width: "100%",
-              padding: "15px",
-              fontSize: "1.1rem",
-              border: "none",
-              background: hoverVeto ? "#cc0000" : "#a00",
-              color: "white",
-              cursor: "pointer",
-              fontWeight: "bold",
-              borderRadius: "5px",
-              textTransform: "uppercase",
-              letterSpacing: "2px",
-              transition: "all 0.2s ease",
-              transform: hoverVeto ? "translateY(-2px)" : "none",
-              boxShadow: hoverVeto ? "0 4px 15px rgba(200,0,0,0.3)" : "none"
-            }}
+            style={{width: "100%", padding: "15px", fontSize: "1.1rem", border: "none", background: hoverVeto ? "#cc0000" : "#a00", color: "white", cursor: "pointer", fontWeight: "bold", borderRadius: "5px", textTransform: "uppercase", letterSpacing: "2px", transition: "all 0.2s ease", transform: hoverVeto ? "translateY(-2px)" : "none", boxShadow: hoverVeto ? "0 4px 15px rgba(200,0,0,0.3)" : "none"}}
           >
             Citizen Veto
           </button>
         </div>
 
         {/* STATUS MESSAGE */}
-        <div style={{
-          marginTop: "25px", 
-          minHeight: "40px", 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center"
-        }}>
+        <div style={{marginTop: "25px", minHeight: "40px", display: "flex", alignItems: "center", justifyContent: "center"}}>
           {message && (
-            <div style={{
-              fontSize: "0.9rem", 
-              fontWeight: "bold", 
-              padding: "10px 20px", 
-              background: hasVoted ? "#e2e3e5" : "#d1ecf1", 
-              color: hasVoted ? "#383d41" : "#0c5460",
-              borderRadius: "50px",
-              animation: "pulse 0.5s ease-in-out"
-            }}>
+            <div style={{fontSize: "0.9rem", fontWeight: "bold", padding: "10px 20px", background: hasVoted ? "#e2e3e5" : "#d1ecf1", color: hasVoted ? "#383d41" : "#0c5460", borderRadius: "50px", animation: "pulse 0.5s ease-in-out"}}>
               {message}
             </div>
           )}
@@ -294,29 +198,11 @@ export default function Home() {
 
       {/* FOOTER */}
       <div className="animate-fade" style={{marginTop: "50px", textAlign: "center"}}>
-        <a href="/amendment" style={{
-          fontSize: "1rem", 
-          color: "#111", 
-          textDecoration: "none", 
-          fontWeight: "bold",
-          borderBottom: "2px solid #111"
-        }}>
+        <a href="/amendment" style={{fontSize: "1rem", color: "#111", textDecoration: "none", fontWeight: "bold", borderBottom: "2px solid #111"}}>
           Read the Competence Restoration Amendment
         </a>
-        
-        {/* DEBUG SWITCH */}
-        <p 
-          onClick={() => setShowRealStats(!showRealStats)} 
-          style={{
-            marginTop: "20px", 
-            fontSize: "0.75rem", 
-            color: "#999", 
-            cursor: "pointer",
-            fontFamily: "monospace"
-          }}
-          title="Toggle Admin View"
-        >
-          System v3.5 • Verified Deployment {showRealStats ? "(DEBUG ACTIVE)" : ""}
+        <p onClick={() => setShowRealStats(!showRealStats)} style={{marginTop: "20px", fontSize: "0.75rem", color: "#999", cursor: "pointer", fontFamily: "monospace"}} title="Toggle Admin View">
+          System v3.7 • Verified Deployment {showRealStats ? "(DEBUG ACTIVE)" : ""}
         </p>
       </div>
     </div>
