@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getCount, castVote } from './actions'; // Importing the NEW secure function
+import { getCount, castVote } from './actions';
 
 // --- CONFIGURATION ---
 const STARTING_YES = 12250;
 const STARTING_NO = 845;
-const STARTING_VETO = 12;
+const STARTING_VETO = 14;
 // ---------------------
 
 export default function Home() {
@@ -38,13 +38,12 @@ export default function Home() {
     }
   };
 
-  // The New Secure Vote Action
+  // Secure Vote Action
   const handleVote = async (type: 'yes' | 'no' | 'veto') => {
     if (hasVoted) return;
 
     setMessage('Verifying Identity...');
 
-    // 1. Send vote to server to check IP
     const result = await castVote(type);
 
     if (result.success) {
@@ -58,7 +57,8 @@ export default function Home() {
     } else {
       // Failed (IP already used)
       setHasVoted(true);
-      setMessage('Error: This Network Has Already Voted.');
+      // UPDATED MESSAGE HERE:
+      setMessage('Error: You already Voted.');
     }
   };
 
