@@ -5,6 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  // This line fixes the "missing image" issue by telling Facebook your full website address
+  metadataBase: new URL('https://drafted-house.vercel.app'), 
+  
   title: "The Competence Restoration Act",
   description: "Official Ratification Interface. System v3.6. Secure Ledger Active.",
   openGraph: {
@@ -13,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "National Shadow Interface",
     locale: 'en_US',
     type: 'website',
-    // The name below must match your uploaded file exactly!
+    // Making sure this points to your PNG file
     images: ['/webpage preview.png'], 
   },
 };
