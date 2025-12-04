@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { getCount, incrementCount } from './actions';
 
 // --- CONFIGURATION: SET YOUR STARTING NUMBERS HERE ---
-const STARTING_YES = 1250;
+const STARTING_YES = 10250;
 const STARTING_NO = 840;
 const STARTING_VETO = 12;
 // -----------------------------------------------------
