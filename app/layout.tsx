@@ -9,10 +9,12 @@ export const metadata: Metadata = {
   description: "Official Ratification Interface. System v3.6. Secure Ledger Active.",
   openGraph: {
     title: "⚠️ The Competence Restoration Act",
-    description: "Official Ratification Interface. System v3.6. Secure Ledger Active. Citizen Action Required.",
+    description: "We Love You BUT, Time For An Update. Participate in the v3.6 Citizen Ratification.",
     siteName: "National Shadow Interface",
     locale: 'en_US',
     type: 'website',
+    // The name below must match your uploaded file exactly!
+    images: ['/webpage preview.jpg'], 
   },
 };
 
