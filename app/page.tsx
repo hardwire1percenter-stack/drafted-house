@@ -17,7 +17,7 @@ export default function Home() {
   const [message, setMessage] = useState('');
   const [hasVoted, setHasVoted] = useState(false);
   
-  // Hover states for buttons
+  // Hover states
   const [hoverYes, setHoverYes] = useState(false);
   const [hoverNo, setHoverNo] = useState(false);
   const [hoverVeto, setHoverVeto] = useState(false);
@@ -149,6 +149,19 @@ export default function Home() {
           <h2 style={{fontSize: "1.5rem", margin: 0, fontFamily: "sans-serif", fontWeight: 700}}>
             H.R.2201 — "The Competence Restoration Act"
           </h2>
+          
+          {/* RESTORED MANDATE SECTION */}
+          <p style={{
+            color: "#555", 
+            marginTop: "15px", 
+            fontSize: "1rem", 
+            lineHeight: "1.6", 
+            fontFamily: "sans-serif"
+          }}>
+            <strong>Mandate:</strong> Establishing a government of <strong>Competency Over Corruption</strong>.
+            <br/>
+            <strong>System Check:</strong> <span style={{color:"#009900", fontWeight:"bold"}}>READY FOR RATIFICATION</span>
+          </p>
         </div>
 
         {/* COUNTERS */}
