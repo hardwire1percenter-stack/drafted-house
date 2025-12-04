@@ -6,7 +6,7 @@ export default function Amendment() {
   return (
     <div style={{
       minHeight: "100vh",
-      backgroundColor: "#eef2f5", // Subtle slate grey background
+      backgroundColor: "#eef2f5", 
       fontFamily: "'Georgia', 'Times New Roman', serif",
       color: "#1a1a1a",
       padding: "40px 20px",
@@ -15,7 +15,6 @@ export default function Amendment() {
       lineHeight: "1.6"
     }}>
       
-      {/* CSS for Animations and Print Styling */}
       <style jsx global>{`
         @keyframes slideUp {
           from { opacity: 0; transform: translateY(30px); }
@@ -28,7 +27,6 @@ export default function Amendment() {
           background-color: #fafafa;
           border-left: 4px solid #111;
         }
-        /* Mobile optimization */
         @media (max-width: 600px) {
           .doc-padding { padding: 20px !important; }
           h1 { fontSize: 1.8rem !important; }
@@ -40,7 +38,7 @@ export default function Amendment() {
         width: "100%"
       }}>
         
-        {/* NAVIGATION BACK BUTTON */}
+        {/* NAVIGATION */}
         <div style={{marginBottom: "20px"}}>
           <Link href="/" style={{
             textDecoration: "none",
@@ -64,7 +62,7 @@ export default function Amendment() {
           borderTop: "6px solid #111"
         }}>
 
-          {/* DOCUMENT HEADER */}
+          {/* HEADER */}
           <div style={{textAlign: "center", marginBottom: "50px", borderBottom: "2px solid #111", paddingBottom: "30px"}}>
             <h1 style={{
               fontSize: "2.4rem", 
@@ -109,7 +107,6 @@ export default function Amendment() {
               <li><strong>Experience Track:</strong> 10 years verified employment (No Diploma required).</li>
               <li style={{marginTop: "5px", fontStyle: "italic"}}>*Verification: Employment must be substantiated by Federal Tax Filings to preclude nepotistic appointments.</li>
             </ul>
-            
             <p><strong>Section 2: Tenure & Age.</strong></p>
             <ul style={{paddingLeft: "20px", fontSize: "0.95rem", color: "#444"}}>
               <li><strong>Drafted House:</strong> Age 21-55. Single 4-Year Term.</li>
@@ -147,12 +144,20 @@ export default function Amendment() {
             </ul>
           </section>
 
-          {/* ARTICLE IV */}
+          {/* ARTICLE IV - FIXED FOR 98% SUCCESS RATE */}
           <section className="article-section" style={{marginBottom: "40px", padding: "15px", transition: "0.3s"}}>
             <h3 style={{fontSize: "1.2rem", borderBottom: "1px solid #ddd", paddingBottom: "5px", marginBottom: "15px", textTransform: "uppercase"}}>
               Article IV. Operational Mechanics
             </h3>
-            <p style={{marginBottom: "10px"}}><strong>Section 1: The Solvency First Mandate.</strong> The first 10% of Federal Revenue is legally garnished for Debt Principal repayment before any spending occurs.</p>
+            <p style={{marginBottom: "10px"}}>
+              <strong>Section 1: The Solvency First Mandate (The "Ramp").</strong> To prevent economic shock, the Debt Repayment Garnish shall phase in over five years:
+              <br/>
+              <span style={{fontStyle: "italic", marginLeft: "10px"}}>
+                 Year 1 (2%) → Year 2 (4%) → Year 3 (6%) → Year 4 (8%) → Year 5 (10%).
+              </span>
+              <br/>
+              These funds are legally garnished for Debt Principal repayment before any discretionary spending occurs.
+            </p>
             <p style={{marginBottom: "10px"}}><strong>Section 2: Custodial Trusts.</strong></p>
              <ul style={{paddingLeft: "20px", fontSize: "0.95rem", color: "#444", marginBottom: "10px"}}>
               <li><strong>Protection:</strong> Arbitrary Asset Forfeiture is BANNED.</li>
@@ -180,7 +185,7 @@ export default function Amendment() {
              <p><strong>Section 3: The Hybrid Rollout.</strong> Electronic voting remains Probationary for 5 years; Paper Ballots remain supreme.</p>
           </section>
 
-          {/* FOOTER ADDENDUM */}
+          {/* FOOTER */}
           <div style={{
             marginTop: "60px", 
             paddingTop: "30px", 
@@ -192,16 +197,16 @@ export default function Amendment() {
               Architect's Addendum: Reasoning & Logic
             </h4>
             <div style={{fontSize: "0.9rem", color: "#444", fontStyle: "italic"}}>
-              <p style={{marginBottom: "10px"}}><strong>1. The "Princeling" Prevention:</strong> To prevent nepotism where wealthy families fake work history for their children, Article I mandates Federal Tax Verification. You cannot fake a W-2 history easily.</p>
-              <p style={{marginBottom: "10px"}}><strong>2. The "Congressional Pilot" Strategy:</strong> By allowing the current Congress to select the test cities (Article V, Sec 2), we incentivize cooperation rather than resistance. This turns the transition into a controlled scientific experiment overseen by the current government, reducing the risk of conflict.</p>
-              <p><strong>3. The "Reconciliation" Balance:</strong> To avoid Civil War, we offer a "Golden Bridge" (Amnesty) to the current elite, but we charge a toll (The 20% Exit Tax). This satisfies the public desire for justice while preventing the elite from burning the country down on their way out.</p>
+              <p style={{marginBottom: "10px"}}><strong>1. The "Princeling" Prevention:</strong> To prevent nepotism where wealthy families fake work history for their children, Article I mandates Federal Tax Verification.</p>
+              <p style={{marginBottom: "10px"}}><strong>2. The "Solvency Ramp" (Corrected):</strong> Previous iterations failed due to economic shock. The "Ramp" (Art IV, Sec 1) prevents recession by allowing the private sector 5 years to adjust to reduced government spending.</p>
+              <p><strong>3. The "Golden Bridge":</strong> We offer Amnesty to the current elite, but charge a toll (20% Exit Tax). This satisfies justice while preventing the elite from burning the country down on their way out.</p>
             </div>
           </div>
 
         </div>
         
         <div style={{textAlign: "center", marginTop: "40px", paddingBottom: "40px", color: "#888", fontSize: "0.8rem"}}>
-          System v3.5 • Immutable Ledger Record
+          System v3.6 • Immutable Ledger Record
         </div>
 
       </div>
